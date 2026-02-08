@@ -26,8 +26,14 @@ root{
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{
-  margin:0;
+body {
+  background: radial-gradient(
+    1200px 600px at 10% 0%,
+    #1f3d2b 0%,
+    #0f1a14 60%
+  );
+  color: #e9efe9;
+}margin:0;
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
   color:var(--text);
   background:
@@ -71,10 +77,12 @@ code{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Libera
   border-radius:12px;
   transition:.18s ease;
 }
-.nav a:hover{background:rgba(255,255,255,.06)}
-.nav__cta{
-  background:rgba(47,107,69,.18);
-  border:1px solid rgba(47,107,69,.45);
+.header,
+.navbar {
+  background: rgba(15, 26, 20, 0.85);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
 }
 .nav__cta:hover{background:rgba(47,107,69,.25)}
 
