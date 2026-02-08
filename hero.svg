@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <rect width="1600" height="900" fill="#E9F0EA"/>
+  <path d="M0 620 C300 520, 430 610, 760 520 C1080 430, 1220 520, 1600 410 L1600 900 L0 900 Z" fill="#3E5F3A" opacity="0.18"/>
+  <path d="M0 700 C360 590, 520 730, 840 610 C1140 500, 1280 590, 1600 470 L1600 900 L0 900 Z" fill="#6B4F3A" opacity="0.12"/>
+  <text x="90" y="150" font-family="Georgia, serif" font-size="66" fill="#122016">Nafas Gunung Cupu</text>
+  <text x="90" y="225" font-family="Arial, sans-serif" font-size="30" fill="#122016" opacity="0.85">Sekolah Alam & Konservasi Hidup</text>
+  <text x="90" y="275" font-family="Arial, sans-serif" font-size="22" fill="#122016" opacity="0.72">Menanam sepanjang musim · Merawat sepanjang waktu · Menjaga sepanjang masa</text>
+</svg>
