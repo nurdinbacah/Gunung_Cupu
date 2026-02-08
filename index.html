@@ -2,233 +2,335 @@
 <html lang="id">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Nafas Gunung Cupu – GN-ELM</title>
-  <meta name="description" content="Nafas Gunung Cupu – Sekolah Alam & Konservasi Hidup." />
-  <link rel="icon" href="assets/logo.svg" type="image/svg+xml" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Nafas Gunung Cupu — GN-ELM. Sekolah alam & konservasi: menanam sepanjang musim, merawat sepanjang waktu, menjaga sepanjang masa." />
+  <meta name="theme-color" content="#1f3d2a" />
+
+  <meta property="og:title" content="Nafas Gunung Cupu — GN-ELM" />
+  <meta property="og:description" content="Sekolah alam & konservasi: menanam sepanjang musim, merawat sepanjang waktu, menjaga sepanjang masa." />
+  <meta property="og:type" content="website" />
+  <!-- Jika Anda punya gambar og (mis. og.jpg), taruh di repo lalu aktifkan:
+  <meta property="og:image" content="og.jpg" />
+  -->
+
+  <title>Nafas Gunung Cupu — GN-ELM</title>
+
+  <!-- Logo/fav -->
+  <link rel="icon" href="logo.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-  <header class="nav">
-    <div class="container nav-inner">
-      <a class="brand" href="#top">
-        <img src="assets/logo.svg" alt="Logo Nafas Gunung Cupu" />
-        <div>
-          <strong>Nafas Gunung Cupu</strong><br/>
-          <span class="small">GN-ELM · Sekolah Alam & Konservasi</span>
+  <!-- Topbar -->
+  <header class="topbar" id="top">
+    <div class="wrap topbar__inner">
+      <a class="brand" href="#top" aria-label="Beranda">
+        <img class="brand__logo" src="logo.svg" alt="Logo" onerror="this.style.display='none'" />
+        <div class="brand__text">
+          <div class="brand__name">Nafas Gunung Cupu</div>
+          <div class="brand__tag">GN-ELM · Sekolah Alam & Konservasi</div>
         </div>
       </a>
-      <nav class="nav-links" aria-label="Navigasi">
+
+      <button class="navbtn" id="navBtn" aria-label="Buka menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav" id="nav">
         <a href="#tentang">Tentang</a>
-        <a href="#z1">Zona Z1</a>
+        <a href="#zona">Zona Z1</a>
         <a href="#sekolah">Sekolah Alam</a>
         <a href="#satwa">Burung & Primata</a>
         <a href="#etika">Etika</a>
         <a href="#unduhan">Unduhan</a>
-        <a href="#kontak">Kontak</a>
+        <a href="#kontak" class="nav__cta">Kontak</a>
       </nav>
     </div>
   </header>
 
-  <main id="top" class="hero">
-    <div class="container">
-      <div class="hero-card">
-        <div class="hero-top">
-          <div class="hero-media" role="img" aria-label="Kabut pagi Gunung Cupu"></div>
-          <div class="hero-content">
-            <div class="kicker">🫁 Nafas Gunung Cupu · GN-ELM</div>
-            <h1>Sekolah di Alam,<br/>Belajar Menjaga Kehidupan</h1>
-            <p class="tagline"><b>Menanam</b> sepanjang musim · <b>Merawat</b> sepanjang waktu · <b>Menjaga</b> sepanjang masa</p>
-            <p class="lead">
-              Gunung Cupu adalah hasil kerja ekologis berkelanjutan lebih dari 20 tahun: menanam, merawat, dan menjaga hingga lahir hutan yang hidup.
-              Halaman ini menjadi pintu informasi resmi untuk <b>Zona Konservasi Inti (Z1)</b>, <b>Sekolah Alam</b>, dan <b>Zona Tenang</b>—siap ditautkan ke QR papan.
-            </p>
-            <div class="cta">
-              <a class="btn primary" href="#z1">🌿 Jelajahi Zona Konservasi</a>
-              <a class="btn" href="#unduhan">📘 Unduh LKS & Dokumen</a>
-              <a class="btn" href="#kontak">🤝 Kemitraan</a>
-            </div>
-            <div class="hr"></div>
-            <div class="qr-box">
-              <div class="qr" aria-label="Placeholder QR">QR</div>
-              <div class="small">
-                <b>QR untuk papan:</b> buat QR dari URL final website.<br/>
-                Rekomendasi: <span class="kbd">nafascupu.id/z1</span> dan tulis URL cadangan di bawah QR.
-              </div>
-            </div>
+  <!-- Hero -->
+  <main class="wrap">
+    <section class="hero">
+      <div class="hero__card">
+        <div class="pill">🌿 Nafas Gunung Cupu · GN-ELM</div>
+        <h1>Sekolah di Alam,<br/>Belajar Menjaga Kehidupan</h1>
+
+        <p class="lead">
+          <b>Menanam</b> sepanjang musim · <b>Merawat</b> sepanjang waktu · <b>Menjaga</b> sepanjang masa
+        </p>
+
+        <p class="muted">
+          Gunung Cupu adalah kerja ekologi berkelanjutan lebih dari 20 tahun: dari lahan rusak menjadi lanskap hidup
+          yang menjaga mata air, keanekaragaman hayati, dan pembelajaran berbasis alam.
+        </p>
+
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="#zona">🌿 Jelajahi Zona Konservasi</a>
+          <a class="btn" href="#unduhan">⬇️ Unduh LKS & Dokumen</a>
+          <button class="btn btn--ghost" id="copyBtn" type="button" title="Salin link halaman ini">
+            🔗 Salin Link
+          </button>
+        </div>
+
+        <div class="hero__stats">
+          <div class="stat">
+            <div class="stat__k">20+ tahun</div>
+            <div class="stat__v">pemulihan ekologi</div>
+          </div>
+          <div class="stat">
+            <div class="stat__k">Z1</div>
+            <div class="stat__v">inti konservasi</div>
+          </div>
+          <div class="stat">
+            <div class="stat__k">GN-ELM</div>
+            <div class="stat__v">sekolah lapang</div>
           </div>
         </div>
       </div>
 
-      <section id="tentang" class="section">
-        <div class="section-title">
-          <h2>Tentang Gunung Cupu</h2>
-          <div class="badges">
-            <span class="badge">20+ tahun pemulihan</span>
-            <span class="badge">Konservasi + Pendidikan</span>
-            <span class="badge">Zona Tenang</span>
-          </div>
+      <div class="hero__media" aria-hidden="true">
+        <!-- Pakai hero.svg bila ada. Jika tidak, tetap tampil cantik karena ada gradient -->
+        <img src="hero.svg" alt="" onerror="this.style.display='none'" />
+        <div class="hero__badge">
+          <div class="hero__badgeTitle">Papan QR</div>
+          <div class="hero__badgeText">Halaman ini siap ditempel di lokasi (papan informasi).</div>
         </div>
-        <div class="grid">
-          <div class="card cols-8">
-            <h2>Kisah Pemulihan</h2>
-            <p>
-              Vegetasi di kawasan inti adalah hasil penanaman dan pemeliharaan berkelanjutan selama lebih dari 20 tahun.
-              Kini tutupan hutan lembab berlapis mulai menunjukkan regenerasi alami aktif—indikator ekosistem yang bergerak menuju kondisi lebih stabil dan mandiri.
-            </p>
-          </div>
-          <div class="card cols-4">
-            <h2>Fokus Utama</h2>
-            <ul class="list">
-              <li>Menjaga tata air</li>
-              <li>Menahan erosi & lereng</li>
-              <li>Habitat burung & primata</li>
-              <li>Sekolah alam berbasis observasi</li>
-            </ul>
-          </div>
-        </div>
-      </section>
+      </div>
+    </section>
 
-      <section id="z1" class="section">
-        <div class="section-title">
-          <h2>Zona Konservasi Inti (Z1)</h2>
-          <div class="badges"><span class="badge">Z1A</span><span class="badge">Z1B</span></div>
-        </div>
-        <div class="grid">
-          <div class="card cols-6">
-            <h2>Z1A – Inti Puncak</h2>
-            <p>Perlindungan penuh untuk puncak sebagai bank genetik, penjaga mikroklimat, dan inti tata air.</p>
-            <ul class="list">
-              <li>Tanpa produksi & tanpa intervensi intensif</li>
-              <li>Pengayaan terbatas hanya bila perlu</li>
-              <li>Zona tenang untuk satwa</li>
-            </ul>
-          </div>
-          <div class="card cols-6">
-            <h2>Z1B – Sabuk Konservasi Lereng</h2>
-            <p>Sabuk pelindung inti puncak: penahan erosi, penyaring air, koridor ekologis.</p>
-            <ul class="list">
-              <li>Monitoring rutin & jalur terbatas</li>
-              <li>Papan batas P5–P10</li>
-              <li>Penguatan titik rawan erosi</li>
-            </ul>
-          </div>
-        </div>
-      </section>
+    <!-- Tentang -->
+    <section class="section" id="tentang">
+      <div class="section__head">
+        <h2>Tentang</h2>
+        <p class="muted">Ringkas, jelas, dan enak dibaca pengunjung umum, sekolah, dan donor.</p>
+      </div>
 
-      <section id="sekolah" class="section">
-        <div class="section-title">
-          <h2>Sekolah Alam GN-ELM</h2>
-          <div class="badges"><span class="badge">SD</span><span class="badge">SMP</span><span class="badge">SMA</span></div>
+      <div class="grid2">
+        <div class="card">
+          <h3>Visi</h3>
+          <p>
+            Menghubungkan konservasi, pangan, dan pendidikan alam dalam satu lanskap hidup:
+            tempat orang belajar menjaga kehidupan dari pengalaman nyata.
+          </p>
         </div>
-        <div class="grid">
-          <div class="card cols-4">
-            <h2>SD</h2>
-            <p>Observasi dasar: mendengar hutan, menggambar, bercerita. Fokus etika: tenang, tidak merusak.</p>
-          </div>
-          <div class="card cols-4">
-            <h2>SMP</h2>
-            <p>Analisis sederhana: ciri hutan sehat, hubungan hutan–air–satwa, pencatatan temuan.</p>
-          </div>
-          <div class="card cols-4">
-            <h2>SMA</h2>
-            <p>Lebih analitis: burung & primata sebagai indikator biologis, dampak gangguan, refleksi konservasi.</p>
-          </div>
+        <div class="card">
+          <h3>Misi</h3>
+          <ul class="list">
+            <li>Memulihkan tutupan lahan dan menjaga mata air.</li>
+            <li>Menguatkan biodiversitas (tanaman, burung, serangga penyerbuk, primata).</li>
+            <li>Menyediakan sekolah lapang (GN-ELM) berbasis observasi–aksi–refleksi.</li>
+            <li>Mendorong kemitraan masyarakat, sekolah, kampus, dan relawan.</li>
+          </ul>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section id="satwa" class="section">
-        <div class="section-title">
-          <h2>Burung & Primata sebagai Indikator Ekosistem</h2>
-          <div class="badges"><span class="badge">Observasi Pasif</span><span class="badge">Non-intervensi</span></div>
-        </div>
-        <div class="grid">
-          <div class="card cols-6">
-            <h2>Burung</h2>
-            <p>Keberagaman & kemunculan burung menandakan struktur hutan berlapis dan ketersediaan pakan alami.</p>
-          </div>
-          <div class="card cols-6">
-            <h2>Primata (monyet & kera)</h2>
-            <p>Primata membutuhkan kontinuitas kanopi. Perilaku alami tanpa terbiasa diberi pakan menandakan gangguan rendah.</p>
-          </div>
-        </div>
-      </section>
+    <!-- Zona -->
+    <section class="section" id="zona">
+      <div class="section__head">
+        <h2>Zona Konservasi Inti (Z1)</h2>
+        <p class="muted">Aturan sederhana, jalur aman, dan pesan edukasi yang kuat.</p>
+      </div>
 
-      <section id="etika" class="section">
-        <div class="section-title">
-          <h2>Etika Kunjungan – Zona Tenang</h2>
-          <div class="badges"><span class="badge">Jaga Suara</span><span class="badge">Jaga Langkah</span></div>
+      <div class="grid3">
+        <div class="card">
+          <h3>Fungsi Z1</h3>
+          <p>Area inti untuk pemulihan habitat, perlindungan sumber air, dan pengamatan satwa.</p>
         </div>
-        <div class="grid">
-          <div class="card cols-6">
-            <h2>Dianjurkan</h2>
-            <ul class="list">
-              <li>Berjalan perlahan & tetap di jalur</li>
-              <li>Observasi dari jarak aman</li>
-              <li>Bawa pulang semua sampah</li>
-              <li>Gunakan suara pelan</li>
-            </ul>
-          </div>
-          <div class="card cols-6">
-            <h2>Dilarang</h2>
-            <ul class="list">
-              <li>Berisik / memutar musik</li>
-              <li>Memberi makan satwa</li>
-              <li>Mengejar satwa</li>
-              <li>Merusak vegetasi</li>
-            </ul>
-          </div>
+        <div class="card">
+          <h3>Aktivitas yang dianjurkan</h3>
+          <ul class="list">
+            <li>Pengamatan flora & burung (sunyi).</li>
+            <li>Monitoring pohon, penyerbuk, dan kualitas air.</li>
+            <li>Kelas lapang: “baca lanskap”, kompos, mulsa, kebun bibit.</li>
+          </ul>
         </div>
-      </section>
+        <div class="card">
+          <h3>Yang dibatasi</h3>
+          <ul class="list">
+            <li>Suara keras, musik, dan kendaraan masuk.</li>
+            <li>Ambil satwa / telur / sarang.</li>
+            <li>Buang sampah, api sembarangan.</li>
+          </ul>
+        </div>
+      </div>
 
-      <section id="unduhan" class="section">
-        <div class="section-title">
-          <h2>Unduhan</h2>
-          <div class="badges"><span class="badge">PDF</span><span class="badge">KMZ</span><span class="badge">LKS</span></div>
+      <div class="callout">
+        <div class="callout__icon">🧭</div>
+        <div class="callout__body">
+          <b>Tip papan lapangan:</b> tempel QR ke halaman ini + tambahkan peta jalur sederhana (nanti bisa kita buat).
         </div>
-        <div class="grid">
-          <div class="card cols-12">
-            <p class="small">Taruh file di folder <span class="kbd">downloads/</span>, lalu ubah link sesuai nama file Anda.</p>
-            <div class="hr"></div>
-            <ul class="list">
-              <li><a href="downloads/Masterplan_Z1.pdf">Masterplan Z1 (PDF)</a></li>
-              <li><a href="downloads/LKS_Z1_SD.pdf">LKS SD (PDF)</a></li>
-              <li><a href="downloads/LKS_Z1_SMP.pdf">LKS SMP (PDF)</a></li>
-              <li><a href="downloads/LKS_Z1_SMA.pdf">LKS SMA (PDF)</a></li>
-              <li><a href="downloads/Z1_FINAL.kmz">KMZ Z1 Final</a></li>
-            </ul>
-          </div>
-        </div>
-      </section>
+      </div>
+    </section>
 
-      <section id="kontak" class="section">
-        <div class="section-title">
-          <h2>Kontak & Kemitraan</h2>
-          <div class="badges"><span class="badge">Sekolah</span><span class="badge">Kampus</span><span class="badge">Donor</span></div>
-        </div>
-        <div class="grid">
-          <div class="card cols-6">
-            <h2>Jadwalkan Kunjungan</h2>
-            <p>Kunjungan dilakukan terbatas & terkontrol, mengikuti etika Zona Tenang.</p>
-            <ul class="list">
-              <li>Email: <span class="kbd">isi_email@contoh.com</span></li>
-              <li>WhatsApp: <span class="kbd">+62 …</span></li>
-              <li>Lokasi: Gunung Cupu, Jonggol</li>
-            </ul>
-          </div>
-          <div class="card cols-6">
-            <h2>Untuk Mitra</h2>
-            <p>Dokumen masterplan, papan, dan LKS tersedia di Unduhan. Kami membuka kemitraan konservasi, riset, dan pendidikan.</p>
-          </div>
-        </div>
-      </section>
+    <!-- Sekolah Alam -->
+    <section class="section" id="sekolah">
+      <div class="section__head">
+        <h2>Sekolah Alam (GN-ELM)</h2>
+        <p class="muted">Format program yang rapi: cocok untuk sekolah, komunitas, dan kunjungan.</p>
+      </div>
 
-      <footer class="footer">
-        <div class="hr"></div>
-        <div class="small">© 2026 Nafas Gunung Cupu · GN-ELM — Sekolah Alam & Konservasi Hidup.</div>
-      </footer>
-    </div>
+      <div class="grid2">
+        <div class="card">
+          <h3>Alur 3 Langkah</h3>
+          <ol class="list">
+            <li><b>Observasi</b> — baca lanskap, catat temuan (LKS).</li>
+            <li><b>Aksi</b> — mulsa, tanam, perbaiki drainase, rawat bibit.</li>
+            <li><b>Refleksi</b> — evaluasi dampak & rencana perawatan.</li>
+          </ol>
+        </div>
+
+        <div class="card">
+          <h3>Output Peserta</h3>
+          <ul class="list">
+            <li>Laporan singkat (foto + catatan indikator).</li>
+            <li>1 aksi konservasi per kelompok.</li>
+            <li>Komitmen perawatan sederhana (jadwal).</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Satwa -->
+    <section class="section" id="satwa">
+      <div class="section__head">
+        <h2>Burung & Primata</h2>
+        <p class="muted">Bagian ini bisa jadi “magnet” edukasi dan wisata konservasi.</p>
+      </div>
+
+      <div class="grid3">
+        <div class="card">
+          <h3>Burung indikator</h3>
+          <p>Pengamatan burung membantu membaca kesehatan habitat (pagi & sore paling ideal).</p>
+        </div>
+        <div class="card">
+          <h3>Primata & etika</h3>
+          <p>Jaga jarak, jangan beri makan, hindari kontak. Prioritas: satwa tetap liar.</p>
+        </div>
+        <div class="card">
+          <h3>Catatan lapangan</h3>
+          <p>Gunakan jalur yang sama, catat jam, cuaca, suara, dan lokasi temuan.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Etika -->
+    <section class="section" id="etika">
+      <div class="section__head">
+        <h2>Etika Kunjungan</h2>
+        <p class="muted">Aturan singkat untuk menjaga suasana dan kelestarian.</p>
+      </div>
+
+      <div class="card">
+        <div class="grid2">
+          <ul class="list">
+            <li><b>Sunyi</b> di zona inti — dengarkan alam.</li>
+            <li><b>Jangan petik</b> tanaman tanpa izin pemandu.</li>
+            <li><b>Bawa pulang sampah</b> (zero litter).</li>
+          </ul>
+          <ul class="list">
+            <li><b>Hormati jalur</b> untuk mencegah erosi.</li>
+            <li><b>Tidak memberi makan</b> satwa liar.</li>
+            <li><b>Api</b> hanya di titik aman & diawasi.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Unduhan -->
+    <section class="section" id="unduhan">
+      <div class="section__head">
+        <h2>Unduhan</h2>
+        <p class="muted">Taruh file PDF/ZIP di folder <code>downloads/</code> di repo Anda.</p>
+      </div>
+
+      <div class="grid3">
+        <a class="card linkcard" href="downloads/README_DEPLOY.txt">
+          <h3>📄 Panduan singkat</h3>
+          <p>Cara update file di GitHub & Pages.</p>
+          <span class="linkcard__go">Buka →</span>
+        </a>
+
+        <a class="card linkcard" href="downloads/LKS_GN-ELM.pdf">
+          <h3>📘 LKS GN-ELM (PDF)</h3>
+          <p>Lembar kerja observasi–aksi–refleksi.</p>
+          <span class="linkcard__go">Unduh →</span>
+        </a>
+
+        <a class="card linkcard" href="downloads/Paket_Kunjungan.pdf">
+          <h3>🗺️ Paket Kunjungan (PDF)</h3>
+          <p>Rute, aturan, dan format program.</p>
+          <span class="linkcard__go">Unduh →</span>
+        </a>
+      </div>
+
+      <p class="muted small">
+        Catatan: kalau file belum ada, link akan 404. Nanti kita tinggal upload file PDF ke folder <code>downloads/</code>.
+      </p>
+    </section>
+
+    <!-- Kontak -->
+    <section class="section" id="kontak">
+      <div class="section__head">
+        <h2>Kontak</h2>
+        <p class="muted">Isi kontak bisa Anda ganti kapan saja.</p>
+      </div>
+
+      <div class="grid2">
+        <div class="card">
+          <h3>Hubungi</h3>
+          <p class="muted">Untuk kunjungan, sekolah, riset, relawan, dan kemitraan.</p>
+
+          <div class="kv">
+            <div class="kv__k">Lokasi</div>
+            <div class="kv__v">Gunung Cupu (Jonggol, Bogor)</div>
+          </div>
+          <div class="kv">
+            <div class="kv__k">WhatsApp</div>
+            <div class="kv__v"><a href="#" class="inline" title="Ganti dengan nomor WA">(+62) 8xx-xxxx-xxxx</a></div>
+          </div>
+          <div class="kv">
+            <div class="kv__k">Email</div>
+            <div class="kv__v"><a href="#" class="inline" title="Ganti dengan email">email@contoh.com</a></div>
+          </div>
+
+          <div class="hero__actions" style="margin-top:14px">
+            <a class="btn btn--primary" href="#top">⬆️ Kembali ke atas</a>
+            <a class="btn" href="#unduhan">⬇️ Lihat Unduhan</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Catatan untuk Papan QR</h3>
+          <p>
+            Halaman ini dirancang untuk dibuka dari QR di lapangan:
+            cepat, ringan, dan tetap terbaca di HP.
+          </p>
+          <div class="callout" style="margin:14px 0 0">
+            <div class="callout__icon">✅</div>
+            <div class="callout__body">
+              Jika Anda ingin, saya bisa buat versi <b>peta jalur + legenda</b> dan tombol <b>“Buka Google Maps”</b>.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="wrap footer__inner">
+        <div>
+          <b>Nafas Gunung Cupu</b>
+          <div class="small muted">Conservation Farm & Nature Adventure</div>
+        </div>
+        <div class="small muted">
+          © <span id="year"></span> · Dibangun di GitHub Pages ·
+          <span class="small" style="opacity:.9">Menanam · Merawat · Menjaga</span>
+        </div>
+      </div>
+    </footer>
   </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite">Link tersalin ✅</div>
 
   <script src="script.js"></script>
 </body>
