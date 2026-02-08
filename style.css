@@ -1,4 +1,10 @@
-:root{
+:root {
+  --green: #1f3d2b;     /* hijau hutan */
+  --brown: #6b4f2d;     /* coklat tanah */
+  --dark: #0f1a14;      /* hitam elegan */
+  --light: #e9efe9;     /* putih lembut */
+}
+root{
   --bg:#0b1410;
   --paper:#0f1b14;
   --card:#111f17;
