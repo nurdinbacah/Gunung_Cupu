@@ -112,7 +112,47 @@ Melalui konsep ini, Gunung Cupu diharapkan menjadi model pengembangan kawasan be
         <h2>Tentang</h2>
         <p class="muted">Ringkas, jelas, dan enak dibaca pengunjung umum, sekolah, dan donor.</p>
       </div>
+<section id="galeri" class="section">
+  <div class="container">
+    <h2>Galeri Foto</h2>
+    <p class="muted">Klik foto untuk memperbesar. Geser untuk lihat lainnya.</p>
 
+    <div class="gallery">
+      <figure class="g-item">
+        <img
+          src="assets/img/gallery/01-kebun.jpg"
+          alt="Lanskap Gunung Cupu"
+          loading="lazy"
+          data-full="assets/img/gallery/01-kebun.jpg"
+          data-caption="Lanskap Gunung Cupu — hijau pulih, jalur kebun, dan hutan di latar."
+        />
+        <figcaption>Lanskap Gunung Cupu</figcaption>
+      </figure>
+
+      <figure class="g-item">
+        <img
+          src="assets/img/gallery/02-jalur.jpg"
+          alt="Jalur kebun saat hujan"
+          loading="lazy"
+          data-full="assets/img/gallery/02-jalur.jpg"
+          data-caption="Jalur kebun saat hujan — akses lapangan dan kondisi tanah."
+        />
+        <figcaption>Jalur kebun saat hujan</figcaption>
+      </figure>
+
+      <figure class="g-item">
+        <img
+          src="assets/img/gallery/03-bibit.jpg"
+          alt="Bibit siap tanam"
+          loading="lazy"
+          data-full="assets/img/gallery/03-bibit.jpg"
+          data-caption="Bibit siap tanam — perbanyakan dan penanaman bertahap."
+        />
+        <figcaption>Bibit siap tanam</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
       <div class="grid2">
         <div class="card">
           <h3>Visi</h3>
@@ -343,3 +383,174 @@ Melalui konsep ini, Gunung Cupu diharapkan menjadi model pengembangan kawasan be
   <script src="script.js"></script>
 </body>
 </html>
+/* ===== Galeri ===== */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0, 1fr));
+  gap:14px;
+  margin-top:14px;
+}
+.g-item{
+  margin:0;
+  border-radius:14px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.08);
+  background:rgba(255,255,255,.03);
+}
+.g-item img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  display:block;
+  cursor:pointer;
+  transition:transform .2s ease;
+}
+.g-item img:hover{ transform:scale(1.02); }
+.g-item figcaption{
+  padding:10px 12px;
+  font-size:.92rem;
+  opacity:.9;
+}
+
+@media (max-width: 980px){
+  .gallery{ grid-template-columns:repeat(2, minmax(0, 1fr)); }
+  .g-item img{ height:200px; }
+}
+@media (max-width: 560px){
+  .gallery{ grid-template-columns:1fr; }
+  .g-item img{ height:220px; }
+}
+
+/* ===== Lightbox ===== */
+.lightbox{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.78);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+  padding:18px;
+}
+.lightbox.open{ display:flex; }
+
+.lightbox-card{
+  width:min(980px, 100%);
+  background:rgba(12,12,12,.7);
+  border:1px solid rgba(255,255,255,.10);
+  border-radius:16px;
+  overflow:hidden;
+  backdrop-filter: blur(8px);
+}
+.lightbox-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:10px 12px;
+  gap:10px;
+}
+.lightbox-caption{
+  font-size:.95rem;
+  opacity:.92;
+}
+.lb-close{
+  border:1px solid rgba(255,255,255,.16);
+  background:rgba(255,255,255,.06);
+  color:inherit;
+  border-radius:10px;
+  padding:8px 10px;
+  cursor:pointer;
+}
+.lb-img{
+  width:100%;
+  max-height:78vh;
+  object-fit:contain;
+  display:block;
+  background:#000;
+}
+.lb-nav{
+  display:flex;
+  gap:10px;
+  padding:10px 12px 14px;
+}
+.lb-btn{
+  flex:1;
+  border:1px solid rgba(255,255,255,.16);
+  background:rgba(255,255,255,.06);
+  color:inherit;
+  border-radius:12px;
+  padding:10px 12px;
+  cursor:pointer;
+}// ===== Lightbox Galeri =====
+(function () {
+  const galleryImgs = Array.from(document.querySelectorAll(".gallery img"));
+  if (!galleryImgs.length) return;
+
+  // Buat elemen lightbox sekali
+  const lb = document.createElement("div");
+  lb.className = "lightbox";
+  lb.innerHTML = `
+    <div class="lightbox-card" role="dialog" aria-modal="true" aria-label="Galeri Foto">
+      <div class="lightbox-top">
+        <div class="lightbox-caption" id="lbCaption"></div>
+        <button class="lb-close" type="button" aria-label="Tutup">Tutup ✕</button>
+      </div>
+      <img class="lb-img" id="lbImg" alt="" />
+      <div class="lb-nav">
+        <button class="lb-btn" type="button" id="lbPrev">← Sebelumnya</button>
+        <button class="lb-btn" type="button" id="lbNext">Berikutnya →</button>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(lb);
+
+  const lbImg = lb.querySelector("#lbImg");
+  const lbCaption = lb.querySelector("#lbCaption");
+  const btnClose = lb.querySelector(".lb-close");
+  const btnPrev = lb.querySelector("#lbPrev");
+  const btnNext = lb.querySelector("#lbNext");
+
+  let idx = 0;
+
+  function openAt(i) {
+    idx = (i + galleryImgs.length) % galleryImgs.length;
+    const img = galleryImgs[idx];
+    const full = img.getAttribute("data-full") || img.src;
+    const cap = img.getAttribute("data-caption") || img.alt || "";
+    lbImg.src = full;
+    lbImg.alt = img.alt || "Foto galeri";
+    lbCaption.textContent = cap;
+    lb.classList.add("open");
+    document.documentElement.style.overflow = "hidden";
+  }
+
+  function close() {
+    lb.classList.remove("open");
+    lbImg.src = "";
+    document.documentElement.style.overflow = "";
+  }
+
+  function next() { openAt(idx + 1); }
+  function prev() { openAt(idx - 1); }
+
+  galleryImgs.forEach((img, i) => {
+    img.addEventListener("click", () => openAt(i));
+  });
+
+  btnClose.addEventListener("click", close);
+  btnNext.addEventListener("click", next);
+  btnPrev.addEventListener("click", prev);
+
+  // klik area gelap untuk tutup
+  lb.addEventListener("click", (e) => {
+    if (e.target === lb) close();
+  });
+
+  // keyboard
+  window.addEventListener("keydown", (e) => {
+    if (!lb.classList.contains("open")) return;
+    if (e.key === "Escape") close();
+    if (e.key === "ArrowRight") next();
+    if (e.key === "ArrowLeft") prev();
+  });
+})();
