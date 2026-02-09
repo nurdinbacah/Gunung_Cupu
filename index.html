@@ -115,7 +115,88 @@ assets/
         </div>
       </div>
     </section>
+<!-- ===================== -->
+<!-- GALERI FOTO -->
+<!-- ===================== -->
+<section id="galeri" class="section">
+  <div class="container">
+    <div class="section-head">
+      <h2>Galeri</h2>
+      <p class="muted">Klik foto untuk melihat lebih besar. Setiap foto punya keterangan.</p>
+    </div>
 
+    <div class="gallery" aria-label="Galeri foto Gunung Cupu">
+      <figure class="gallery-item">
+        <img
+          src="assets/img/gallery/air.jpg"
+          alt="Aliran air di kawasan Gunung Cupu"
+          loading="lazy"
+          data-caption="Aliran air—penanda lanskap hidup yang terus dijaga."
+        />
+        <figcaption>Aliran air—penanda lanskap hidup.</figcaption>
+      </figure>
+
+      <figure class="gallery-item">
+        <img
+          src="assets/img/gallery/riparian.jpg"
+          alt="Koridor riparian di Gunung Cupu"
+          loading="lazy"
+          data-caption="Koridor riparian: tepi sungai sebagai habitat dan jalur satwa."
+        />
+        <figcaption>Koridor riparian (tepi sungai).</figcaption>
+      </figure>
+
+      <figure class="gallery-item">
+        <img
+          src="assets/img/gallery/lereng.jpg"
+          alt="Lanskap lereng hijau Gunung Cupu"
+          loading="lazy"
+          data-caption="Lereng hijau—hasil pemulihan bertahun-tahun melalui penanaman."
+        />
+        <figcaption>Lereng hijau hasil pemulihan.</figcaption>
+      </figure>
+
+      <figure class="gallery-item">
+        <img
+          src="assets/img/gallery/jambu.jpg"
+          alt="Tanaman jambu berbunga"
+          loading="lazy"
+          data-caption="Jambu berbunga—contoh kebun pangan yang menyatu dengan konservasi."
+        />
+        <figcaption>Jambu berbunga (pangan & konservasi).</figcaption>
+      </figure>
+
+      <figure class="gallery-item">
+        <img
+          src="assets/img/gallery/vegetasi-bertingkat.jpg"
+          alt="Vegetasi bertingkat di Gunung Cupu"
+          loading="lazy"
+          data-caption="Vegetasi bertingkat: strata bawah–tengah–atas menahan erosi dan menjaga air."
+        />
+        <figcaption>Vegetasi bertingkat.</figcaption>
+      </figure>
+
+      <figure class="gallery-item">
+        <img
+          src="assets/img/gallery/rumah-sunyi.jpg"
+          alt="Rumah sunyi di tengah kawasan"
+          loading="lazy"
+          data-caption="Rumah sunyi: titik istirahat dan belajar di alam."
+        />
+        <figcaption>Rumah sunyi (titik belajar).</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX (taruh sebelum </body>) -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lb-close" id="lbClose" aria-label="Tutup (Esc)">✕</button>
+  <div class="lb-inner" role="dialog" aria-modal="true" aria-label="Pratinjau foto">
+    <img id="lbImg" alt="" />
+    <div class="lb-caption" id="lbCaption"></div>
+  </div>
+</div>
     <!-- Tentang -->
     <section class="section" id="tentang">
       <div class="section__head">
