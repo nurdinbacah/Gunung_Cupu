@@ -31,5 +31,18 @@ copyBtn?.addEventListener("click", async () => {
     showToast("Link tersalin ✅");
   } catch (e) {
     showToast("Gagal salin — salin manual dari address bar");
-  }
+  }// === LIGHTBOX GALERI ===
+document.querySelectorAll('.gallery-grid img').forEach(img => {
+  img.addEventListener('click', () => {
+    const lightbox = document.getElementById('lightbox');
+    document.getElementById('lightbox-img').src = img.src;
+    document.getElementById('lightbox-caption').innerText =
+      img.nextElementSibling.innerText;
+    lightbox.classList.add('show');
+  });
+});
+
+document.getElementById('lightbox').addEventListener('click', () => {
+  document.getElementById('lightbox').classList.remove('show');
+});
 });
