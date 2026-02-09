@@ -551,12 +551,177 @@ assets/
   lb.addEventListener("click", (e) => {
     if (e.target === lb) close();
   });
+<section id="galeri" class="section">
+  <h2>Galeri Alam Gunung Cupu</h2>
+  <p class="section-desc">
+    Dokumentasi lanskap, air, vegetasi, dan proses pemulihan ekologis.
+  </p>
 
+  <div class="gallery-grid">
+    <figure>
+      <img src="assets/img/air.jpg" alt="Aliran air alami Gunung Cupu" data-caption="Aliran air alami yang terjaga sepanjang tahun">
+      <figcaption>Aliran air alami</figcaption>
+    </figure>
+
+    <figure>
+      <img src="assets/img/riparian.jpg" alt="Zona riparian" data-caption="Zona riparian sebagai penyangga ekosistem air">
+      <figcaption>Zona riparian</figcaption>
+    </figure>
+
+    <figure>
+      <img src="assets/img/vegetasi-bertingkat.jpg" alt="Vegetasi bertingkat" data-caption="Struktur vegetasi bertingkat hasil regenerasi alami">
+      <figcaption>Vegetasi bertingkat</figcaption>
+    </figure>
+
+    <figure>
+      <img src="assets/img/jambu.jpg" alt="Tanaman pangan" data-caption="Tanaman pangan terintegrasi dengan konservasi">
+      <figcaption>Tanaman pangan</figcaption>
+    </figure>
+  </div>
+</section>
+<section id="galeri" class="section">
+  <h2>Galeri Alam Gunung Cupu</h2>
+  <p class="section-desc">
+    Dokumentasi lanskap, air, vegetasi, dan proses pemulihan ekologis.
+  </p>
+
+  <div class="gallery-grid">
+    <figure>
+      <img src="assets/img/air.jpg" alt="Aliran air alami Gunung Cupu" data-caption="Aliran air alami yang terjaga sepanjang tahun">
+      <figcaption>Aliran air alami</figcaption>
+    </figure>
+
+    <figure>
+      <img src="assets/img/riparian.jpg" alt="Zona riparian" data-caption="Zona riparian sebagai penyangga ekosistem air">
+      <figcaption>Zona riparian</figcaption>
+    </figure>
+
+    <figure>
+      <img src="assets/img/vegetasi-bertingkat.jpg" alt="Vegetasi bertingkat" data-caption="Struktur vegetasi bertingkat hasil regenerasi alami">
+      <figcaption>Vegetasi bertingkat</figcaption>
+    </figure>
+
+    <figure>
+      <img src="assets/img/jambu.jpg" alt="Tanaman pangan" data-caption="Tanaman pangan terintegrasi dengan konservasi">
+      <figcaption>Tanaman pangan</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" class="lightbox">
+  <span class="close">&times;</span>
+  <img class="lightbox-img" />
+  <p class="lightbox-caption"></p>
+</div>
+<!-- LIGHTBOX -->
+<div id="lightbox" class="lightbox">
+  <span class="close">&times;</span>
+  <img class="lightbox-img" />
+  <p class="lightbox-caption"></p>
+</div>
   // keyboard
   window.addEventListener("keydown", (e) => {
     if (!lb.classList.contains("open")) return;
     if (e.key === "Escape") close();
     if (e.key === "ArrowRight") next();
     if (e.key === "ArrowLeft") prev();
+  });/* === GALERI FOTO === */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.gallery-grid figure {
+  background: #0f1b14;
+  border-radius: 14px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.gallery-grid figure:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0,0,0,.4);
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+.gallery-grid figcaption {
+  padding: 10px 12px;
+  font-size: .9rem;
+  color: #cfe6d6;
+  background: linear-gradient(to top, #0b120e, transparent);
+}
+
+/* === LIGHTBOX === */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.85);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.lightbox.show {
+  display: flex;
+}
+
+.lightbox-img {
+  max-width: 90%;
+  max-height: 75vh;
+  border-radius: 14px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.6);
+}
+
+.lightbox-caption {
+  margin-top: 14px;
+  color: #e6f2ec;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.lightbox .close {
+  position: absolute;
+  top: 20px;
+  right: 26px;
+  font-size: 36px;
+  color: #fff;
+  cursor: pointer;
+}
+}// === LIGHTBOX GALERI ===
+const galleryImages = document.querySelectorAll('.gallery-grid img');
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.querySelector('.lightbox-img');
+const lightboxCaption = document.querySelector('.lightbox-caption');
+const lightboxClose = document.querySelector('.lightbox .close');
+
+galleryImages.forEach(img => {
+  img.addEventListener('click', () => {
+    lightboxImg.src = img.src;
+    lightboxCaption.textContent = img.dataset.caption || img.alt;
+    lightbox.classList.add('show');
   });
-})();
+});
+
+lightboxClose.addEventListener('click', () => {
+  lightbox.classList.remove('show');
+});
+
+lightbox.addEventListener('click', e => {
+  if (e.target === lightbox) {
+    lightbox.classList.remove('show');
+  }
+});
+();
