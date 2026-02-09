@@ -44,5 +44,47 @@ document.querySelectorAll('.gallery-grid img').forEach(img => {
 
 document.getElementById('lightbox').addEventListener('click', () => {
   document.getElementById('lightbox').classList.remove('show');
-});
+});// =====================
+// LIGHTBOX GALERI
+// =====================
+(() => {
+  const lightbox = document.getElementById("lightbox");
+  const lbImg = document.getElementById("lbImg");
+  const lbCaption = document.getElementById("lbCaption");
+  const lbClose = document.getElementById("lbClose");
+
+  if (!lightbox || !lbImg || !lbCaption) return;
+
+  const open = (imgEl) => {
+    lbImg.src = imgEl.src;
+    lbImg.alt = imgEl.alt || "";
+    lbCaption.textContent = imgEl.dataset.caption || "";
+    lightbox.classList.add("is-open");
+    lightbox.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  };
+
+  const close = () => {
+    lightbox.classList.remove("is-open");
+    lightbox.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+    lbImg.src = "";
+  };
+
+  document.querySelectorAll(".gallery-item img").forEach((img) => {
+    img.addEventListener("click", () => open(img));
+  });
+
+  lbClose?.addEventListener("click", close);
+
+  // klik area gelap untuk tutup
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) close();
+  });
+
+  // ESC untuk tutup
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && lightbox.classList.contains("is-open")) close();
+  });
+})();
 });
