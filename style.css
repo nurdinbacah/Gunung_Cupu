@@ -1,4 +1,12 @@
 :root {
+  --green-main: #1f3d2b;   /* hijau hutan */
+  --green-soft: #2e5b3f;
+  --brown-earth: #6b4e2e; /* coklat tanah */
+  --black-elegant: #0e0f0f;
+  --text-main: #e9f0ea;
+  --card-bg: rgba(20, 30, 24, 0.85);
+}
+root {
   --green: #1f3d2b;     /* hijau hutan */
   --brown: #6b4f2d;     /* coklat tanah */
   --dark: #0f1a14;      /* hitam elegan */
