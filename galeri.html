@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Galeri foto Gunung Cupu: lanskap, air, vegetasi, dan pemulihan ekologis." />
+  <meta name="theme-color" content="#0f1a14" />
+
+  <title>Galeri • Gunung Cupu</title>
+
+  <link rel="icon" href="logo.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- NAV (samakan dengan index.html kamu) -->
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="index.html">
+        <img src="logo.svg" alt="Nafas Gunung Cupu" class="brand__logo" />
+        <div class="brand__text">
+          <div class="brand__title">Nafas Gunung Cupu</div>
+          <div class="brand__sub">GN-ELM • Sekolah Alam & Konservasi</div>
+        </div>
+      </a>
+
+      <nav class="menu">
+        <a href="index.html#tentang">Tentang</a>
+        <a href="index.html#zona">Zona Z1</a>
+        <a href="index.html#sekolah">Sekolah Alam</a>
+        <a href="index.html#etika">Etika</a>
+        <a href="galeri.html" aria-current="page">Galeri</a>
+        <a href="index.html#unduhan">Unduhan</a>
+        <a class="btn btn--outline" href="index.html#kontak">Kontak</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container page">
+    <div class="page__head">
+      <h1>Galeri Alam Gunung Cupu</h1>
+      <p>Dokumentasi lanskap, air, vegetasi, serta ruang belajar di kawasan konservasi.</p>
+    </div>
+
+    <!-- GRID GALERI -->
+    <section class="gallery" id="galeri">
+      <!-- Ganti / tambah item sesuai foto kamu -->
+      <figure class="gcard">
+        <img class="gimg" src="assets/img/Air.jpg" alt="Aliran air alami" data-caption="Aliran air alami di kawasan Gunung Cupu (pemulihan hidrologi)." loading="lazy">
+        <figcaption>Aliran air alami</figcaption>
+      </figure>
+
+      <figure class="gcard">
+        <img class="gimg" src="assets/img/Riparian.jpg" alt="Zona riparian" data-caption="Zona riparian: penyangga tepi aliran air untuk stabilitas tanah & habitat." loading="lazy">
+        <figcaption>Zona riparian</figcaption>
+      </figure>
+
+      <figure class="gcard">
+        <img class="gimg" src="assets/img/Vegetasi%20bertingkat.jpg" alt="Vegetasi bertingkat" data-caption="Vegetasi bertingkat: struktur agroforestri yang membangun habitat dan mikroklimat." loading="lazy">
+        <figcaption>Vegetasi bertingkat</figcaption>
+      </figure>
+
+      <figure class="gcard">
+        <img class="gimg" src="assets/img/Jambu.jpg" alt="Tanaman buah / pangan" data-caption="Tanaman buah/pangan: bagian dari sistem agroforestri berbasis masyarakat." loading="lazy">
+        <figcaption>Tanaman buah / pangan</figcaption>
+      </figure>
+
+      <figure class="gcard">
+        <img class="gimg" src="assets/img/Rumah%20Sunyi.Jpg" alt="Rumah Sunyi" data-caption="Rumah Sunyi: ruang hening dan tempat singgah untuk belajar di alam." loading="lazy">
+        <figcaption>Rumah Sunyi</figcaption>
+      </figure>
+    </section>
+  </main>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lb__close" id="lbClose" aria-label="Tutup">×</button>
+
+    <button class="lb__nav lb__prev" id="lbPrev" aria-label="Sebelumnya">‹</button>
+    <button class="lb__nav lb__next" id="lbNext" aria-label="Berikutnya">›</button>
+
+    <div class="lb__body" role="dialog" aria-modal="true" aria-label="Galeri foto">
+      <img id="lbImg" alt="" />
+      <div class="lb__cap" id="lbCap"></div>
+    </div>
+  </div>
+
+  <script>
+    // Lightbox super ringan (khusus halaman ini)
+    const imgs = Array.from(document.querySelectorAll(".gimg"));
+    const lb = document.getElementById("lightbox");
+    const lbImg = document.getElementById("lbImg");
+    const lbCap = document.getElementById("lbCap");
+    const btnClose = document.getElementById("lbClose");
+    const btnPrev = document.getElementById("lbPrev");
+    const btnNext = document.getElementById("lbNext");
+
+    let idx = 0;
+
+    function openAt(i){
+      idx = (i + imgs.length) % imgs.length;
+      const el = imgs[idx];
+      lbImg.src = el.src;
+      lbImg.alt = el.alt || "Foto galeri";
+      lbCap.textContent = el.getAttribute("data-caption") || el.alt || "";
+      lb.classList.add("open");
+      lb.setAttribute("aria-hidden", "false");
+      document.documentElement.style.overflow = "hidden";
+    }
+
+    function closeLb(){
+      lb.classList.remove("open");
+      lb.setAttribute("aria-hidden", "true");
+      lbImg.src = "";
+      document.documentElement.style.overflow = "";
+    }
+
+    imgs.forEach((el, i) => el.addEventListener("click", () => openAt(i)));
+    btnClose.addEventListener("click", closeLb);
+    btnPrev.addEventListener("click", () => openAt(idx - 1));
+    btnNext.addEventListener("click", () => openAt(idx + 1));
+
+    // klik area gelap untuk tutup
+    lb.addEventListener("click", (e) => { if (e.target === lb) closeLb(); });
+
+    // keyboard
+    window.addEventListener("keydown", (e) => {
+      if (!lb.classList.contains("open")) return;
+      if (e.key === "Escape") closeLb();
+      if (e.key === "ArrowLeft") openAt(idx - 1);
+      if (e.key === "ArrowRight") openAt(idx + 1);
+    });
+  </script>
+</body>
+</html>
