@@ -117,3 +117,122 @@
   <script src="script.js"></script>
 </body>
 </html>
+!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Galeri — Gunung Cupu</title>
+  <link rel="icon" href="logo.svg" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html">
+        <img src="logo.svg" alt="Logo" />
+        <div>
+          <div class="title">Gunung Cupu</div>
+          <div class="sub">Conservation Farm & Nature Adventure</div>
+        </div>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html">Beranda</a>
+        <a href="tentang.html">Tentang</a>
+        <a href="zona-z1.html">Zona Z1</a>
+        <a href="sekolah-alam.html">Sekolah Alam</a>
+        <a href="galeri.html">Galeri</a>
+        <a href="unduhan.html">Unduhan</a>
+        <a href="kontak.html">Kontak</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="section">
+      <div class="card">
+        <h2>Galeri Gunung Cupu</h2>
+        <p>Klik foto untuk melihat ukuran besar. Gunakan tombol ◀ ▶ atau tombol keyboard ← →.</p>
+
+        <div class="gallery">
+          <!-- 1 -->
+          <figure class="figure">
+            <img
+              src="assets/img/galeri/air.jpg"
+              alt="Aliran air alami Gunung Cupu"
+              data-full="assets/img/galeri/air.jpg"
+              data-caption="Aliran air alami Gunung Cupu — indikator pemulihan hidrologi."
+            />
+            <figcaption>Aliran air alami</figcaption>
+          </figure>
+
+          <!-- 2 -->
+          <figure class="figure">
+            <img
+              src="assets/img/galeri/hero.jpg"
+              alt="Lanskap hijau Gunung Cupu"
+              data-full="assets/img/galeri/hero.jpg"
+              data-caption="Lanskap hijau — mosaik agroforestri & hutan rakyat."
+            />
+            <figcaption>Lanskap hijau</figcaption>
+          </figure>
+
+          <!-- 3 -->
+          <figure class="figure">
+            <img
+              src="assets/img/galeri/jambu.jpg"
+              alt="Tanaman buah (jambu) di Gunung Cupu"
+              data-full="assets/img/galeri/jambu.jpg"
+              data-caption="Tanaman buah — bagian dari sistem agroforestri."
+            />
+            <figcaption>Agroforestri buah</figcaption>
+          </figure>
+
+          <!-- 4 -->
+          <figure class="figure">
+            <img
+              src="assets/img/galeri/riparian.jpg"
+              alt="Zona riparian (sempadan sungai)"
+              data-full="assets/img/galeri/riparian.jpg"
+              data-caption="Zona riparian — vegetasi penyangga bantaran air."
+            />
+            <figcaption>Zona riparian</figcaption>
+          </figure>
+
+          <!-- 5 -->
+          <figure class="figure">
+            <img
+              src="assets/img/galeri/rumah-sunyi.jpg"
+              alt="Rumah Sunyi (pondok)"
+              data-full="assets/img/galeri/rumah-sunyi.jpg"
+              data-caption="Rumah Sunyi — ruang hening untuk belajar & refleksi."
+            />
+            <figcaption>Rumah Sunyi</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="small">© Gunung Cupu — Conservation Farm & Nature Adventure</div>
+    </footer>
+  </main>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lb-panel" role="dialog" aria-modal="true">
+      <div class="lb-top">
+        <div class="lb-cap" id="lbCaption">Keterangan foto</div>
+        <div class="lb-actions">
+          <button class="icon-btn" id="lbPrev" title="Sebelumnya">◀</button>
+          <button class="icon-btn" id="lbNext" title="Berikutnya">▶</button>
+          <button class="icon-btn" id="lbClose" title="Tutup">✕</button>
+        </div>
+      </div>
+      <img class="lb-img" id="lbImg" alt="Foto galeri" />
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
