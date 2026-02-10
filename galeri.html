@@ -3,6 +3,110 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Galeri — Nafas Gunung Cupu</title>
+  <meta name="description" content="Galeri foto Gunung Cupu: lanskap, air, vegetasi, dan fasilitas sederhana." />
+  <link rel="icon" href="assets/img/logo-icon.png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="topbar">
+    <div class="container">
+      <div class="nav">
+        <a class="brand" href="index.html">
+          <img src="assets/img/logo-icon.png" alt="Logo" />
+          <div>
+            <div class="t1">Nafas Gunung Cupu</div>
+            <div class="t2">Conservation Farm & Natural Adventure</div>
+          </div>
+        </a>
+
+        <div class="menu">
+          <a href="index.html">Beranda</a>
+          <a href="tentang.html">Tentang</a>
+          <a href="galeri.html">Galeri</a>
+          <a href="kontak.html">Kontak</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="section">
+      <h2>Galeri Foto</h2>
+      <p>Dokumentasi lanskap, air, vegetasi, dan suasana lapangan. Klik foto untuk memperbesar.</p>
+
+      <div class="grid">
+        <!-- GANTI src sesuai nama file yang benar di assets/img -->
+        <div class="card">
+          <img data-gallery="true" src="assets/img/air.jpg" data-full="assets/img/air.jpg"
+               alt="Aliran air alami Gunung Cupu"
+               data-caption="Aliran air alami di kawasan: indikator pemulihan hidrologi dan keberlanjutan sumber air." />
+          <div class="cap"><div class="t">Aliran air alami</div><div class="s">Klik untuk lihat penuh</div></div>
+        </div>
+
+        <div class="card">
+          <img data-gallery="true" src="assets/img/riparian.jpg" data-full="assets/img/riparian.jpg"
+               alt="Zona riparian"
+               data-caption="Zona riparian: koridor hijau sepanjang aliran air yang menjaga tebing, tanah, dan habitat." />
+          <div class="cap"><div class="t">Zona riparian</div><div class="s">Klik untuk lihat penuh</div></div>
+        </div>
+
+        <div class="card">
+          <img data-gallery="true" src="assets/img/vegetasi.jpg" data-full="assets/img/vegetasi.jpg"
+               alt="Vegetasi bertingkat"
+               data-caption="Vegetasi bertingkat: struktur tajuk berlapis yang mendukung mikroklimat dan keanekaragaman hayati." />
+          <div class="cap"><div class="t">Vegetasi bertingkat</div><div class="s">Klik untuk lihat penuh</div></div>
+        </div>
+
+        <div class="card">
+          <img data-gallery="true" src="assets/img/jambu.jpg" data-full="assets/img/jambu.jpg"
+               alt="Tanaman buah (jambu)"
+               data-caption="Tanaman buah: bagian dari agroforestri yang memberi manfaat ekonomi sekaligus memperkuat tutupan lahan." />
+          <div class="cap"><div class="t">Tanaman buah</div><div class="s">Klik untuk lihat penuh</div></div>
+        </div>
+
+        <div class="card">
+          <img data-gallery="true" src="assets/img/rumah-sunyi.jpg" data-full="assets/img/rumah-sunyi.jpg"
+               alt="Rumah sunyi / shelter sederhana"
+               data-caption="Shelter sederhana untuk kegiatan lapangan: edukasi, observasi, dan istirahat terbatas." />
+          <div class="cap"><div class="t">Shelter lapangan</div><div class="s">Klik untuk lihat penuh</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div>© <span id="year"></span> Nafas Gunung Cupu</div>
+      <div><a href="tentang.html">Tentang</a> · <a href="kontak.html">Kontak</a></div>
+    </div>
+  </div>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Lightbox galeri">
+    <div class="lb-inner">
+      <div class="lb-top">
+        <div id="lbTitle" class="lb-title">Foto</div>
+        <div class="lb-actions">
+          <button id="lbPrev" class="iconbtn" type="button">←</button>
+          <button id="lbNext" class="iconbtn" type="button">→</button>
+          <button id="lbClose" class="iconbtn" type="button">✕</button>
+        </div>
+      </div>
+      <img id="lbImg" class="lb-img" alt="" />
+      <div id="lbCaption" class="lb-cap"></div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
+!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="description" content="Galeri foto Gunung Cupu: lanskap, air, vegetasi, dan pemulihan ekologis." />
   <meta name="theme-color" content="#0f1a14" />
 
