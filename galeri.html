@@ -3,236 +3,217 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Galeri — Nafas Gunung Cupu</title>
-  <meta name="description" content="Galeri foto Gunung Cupu: lanskap, air, vegetasi, dan fasilitas sederhana." />
-  <link rel="icon" href="assets/img/logo-icon.png" />
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <div class="topbar">
-    <div class="container">
-      <div class="nav">
-        <a class="brand" href="index.html">
-          <img src="assets/img/logo-icon.png" alt="Logo" />
-          <div>
-            <div class="t1">Nafas Gunung Cupu</div>
-            <div class="t2">Conservation Farm & Natural Adventure</div>
-          </div>
-        </a>
-
-        <div class="menu">
-          <a href="index.html">Beranda</a>
-          <a href="tentang.html">Tentang</a>
-          <a href="galeri.html">Galeri</a>
-          <a href="kontak.html">Kontak</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="container">
-    <div class="section">
-      <h2>Galeri Foto</h2>
-      <p>Dokumentasi lanskap, air, vegetasi, dan suasana lapangan. Klik foto untuk memperbesar.</p>
-
-      <div class="grid">
-        <!-- GANTI src sesuai nama file yang benar di assets/img -->
-        <div class="card">
-          <img data-gallery="true" src="assets/img/air.jpg" data-full="assets/img/air.jpg"
-               alt="Aliran air alami Gunung Cupu"
-               data-caption="Aliran air alami di kawasan: indikator pemulihan hidrologi dan keberlanjutan sumber air." />
-          <div class="cap"><div class="t">Aliran air alami</div><div class="s">Klik untuk lihat penuh</div></div>
-        </div>
-
-        <div class="card">
-          <img data-gallery="true" src="assets/img/riparian.jpg" data-full="assets/img/riparian.jpg"
-               alt="Zona riparian"
-               data-caption="Zona riparian: koridor hijau sepanjang aliran air yang menjaga tebing, tanah, dan habitat." />
-          <div class="cap"><div class="t">Zona riparian</div><div class="s">Klik untuk lihat penuh</div></div>
-        </div>
-
-        <div class="card">
-          <img data-gallery="true" src="assets/img/vegetasi.jpg" data-full="assets/img/vegetasi.jpg"
-               alt="Vegetasi bertingkat"
-               data-caption="Vegetasi bertingkat: struktur tajuk berlapis yang mendukung mikroklimat dan keanekaragaman hayati." />
-          <div class="cap"><div class="t">Vegetasi bertingkat</div><div class="s">Klik untuk lihat penuh</div></div>
-        </div>
-
-        <div class="card">
-          <img data-gallery="true" src="assets/img/jambu.jpg" data-full="assets/img/jambu.jpg"
-               alt="Tanaman buah (jambu)"
-               data-caption="Tanaman buah: bagian dari agroforestri yang memberi manfaat ekonomi sekaligus memperkuat tutupan lahan." />
-          <div class="cap"><div class="t">Tanaman buah</div><div class="s">Klik untuk lihat penuh</div></div>
-        </div>
-
-        <div class="card">
-          <img data-gallery="true" src="assets/img/rumah-sunyi.jpg" data-full="assets/img/rumah-sunyi.jpg"
-               alt="Rumah sunyi / shelter sederhana"
-               data-caption="Shelter sederhana untuk kegiatan lapangan: edukasi, observasi, dan istirahat terbatas." />
-          <div class="cap"><div class="t">Shelter lapangan</div><div class="s">Klik untuk lihat penuh</div></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="footer">
-      <div>© <span id="year"></span> Nafas Gunung Cupu</div>
-      <div><a href="tentang.html">Tentang</a> · <a href="kontak.html">Kontak</a></div>
-    </div>
-  </div>
-
-  <!-- Lightbox -->
-  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Lightbox galeri">
-    <div class="lb-inner">
-      <div class="lb-top">
-        <div id="lbTitle" class="lb-title">Foto</div>
-        <div class="lb-actions">
-          <button id="lbPrev" class="iconbtn" type="button">←</button>
-          <button id="lbNext" class="iconbtn" type="button">→</button>
-          <button id="lbClose" class="iconbtn" type="button">✕</button>
-        </div>
-      </div>
-      <img id="lbImg" class="lb-img" alt="" />
-      <div id="lbCaption" class="lb-cap"></div>
-    </div>
-  </div>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
-  <script src="script.js"></script>
-</body>
-</html>
-!doctype html>
-<html lang="id">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Galeri foto Gunung Cupu: lanskap, air, vegetasi, dan pemulihan ekologis." />
-  <meta name="theme-color" content="#0f1a14" />
-
   <title>Galeri • Gunung Cupu</title>
 
-  <link rel="icon" href="logo.svg" type="image/svg+xml" />
+  <!-- Pakai CSS yang sama -->
   <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* Tambahan khusus galeri (aman, tidak ganggu halaman lain) */
+    .page { max-width: 1100px; margin: 0 auto; padding: 96px 20px 56px; }
+    .page h1 { margin: 0 0 10px; }
+    .page p.lead { opacity: .9; margin: 0 0 26px; }
+
+    .gallery-grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:14px;
+      margin-top: 18px;
+    }
+    .gitem{
+      grid-column: span 6;
+      border-radius: 16px;
+      overflow: hidden;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.08);
+      cursor: pointer;
+    }
+    @media (max-width: 820px){ .gitem{ grid-column: span 12; } }
+    .gimg{
+      width:100%; height: 260px; object-fit: cover; display:block;
+      background: rgba(255,255,255,.03);
+    }
+    .gcap{
+      padding: 12px 12px 14px;
+      font-weight: 600;
+    }
+    .gsub{
+      padding: 0 12px 14px;
+      opacity: .85;
+      font-size: 14px;
+      margin-top: -10px;
+    }
+
+    /* Lightbox */
+    .lightbox{
+      position: fixed; inset: 0;
+      display:none;
+      align-items:center; justify-content:center;
+      background: rgba(0,0,0,.72);
+      z-index: 9999;
+      padding: 22px;
+    }
+    .lightbox.open{ display:flex; }
+    .lb-card{
+      width: min(980px, 96vw);
+      background: rgba(10,12,10,.9);
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 18px 60px rgba(0,0,0,.55);
+    }
+    .lb-img{ width:100%; max-height: 72vh; object-fit: contain; display:block; background:#000; }
+    .lb-bottom{
+      display:flex; gap:10px; align-items:center; justify-content:space-between;
+      padding: 12px 14px;
+    }
+    .lb-text{ line-height: 1.2; }
+    .lb-title{ font-weight: 800; }
+    .lb-desc{ opacity:.85; font-size: 14px; margin-top: 4px; }
+    .lb-actions{ display:flex; gap:8px; }
+    .lb-btn{
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color: #fff;
+      padding: 8px 10px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: 700;
+    }
+    .lb-btn:hover{ background: rgba(255,255,255,.10); }
+  </style>
 </head>
 
 <body>
-  <!-- NAV (samakan dengan index.html kamu) -->
+  <!-- NAV sederhana (sesuaikan kalau nav Anda beda) -->
   <header class="topbar">
-    <div class="container nav">
+    <div class="container">
       <a class="brand" href="index.html">
-        <img src="logo.svg" alt="Nafas Gunung Cupu" class="brand__logo" />
-        <div class="brand__text">
-          <div class="brand__title">Nafas Gunung Cupu</div>
-          <div class="brand__sub">GN-ELM • Sekolah Alam & Konservasi</div>
+        <img src="logo.svg" alt="Logo" width="28" height="28">
+        <div>
+          <div class="brand-title">Nafas Gunung Cupu</div>
+          <div class="brand-sub">Sekolah Alam & Konservasi</div>
         </div>
       </a>
 
-      <nav class="menu">
+      <nav class="nav">
         <a href="index.html#tentang">Tentang</a>
-        <a href="index.html#zona">Zona Z1</a>
-        <a href="index.html#sekolah">Sekolah Alam</a>
-        <a href="index.html#etika">Etika</a>
         <a href="galeri.html" aria-current="page">Galeri</a>
+        <a href="index.html#zona-z1">Zona Z1</a>
         <a href="index.html#unduhan">Unduhan</a>
-        <a class="btn btn--outline" href="index.html#kontak">Kontak</a>
+        <a href="index.html#kontak">Kontak</a>
       </nav>
     </div>
   </header>
 
-  <main class="container page">
-    <div class="page__head">
-      <h1>Galeri Alam Gunung Cupu</h1>
-      <p>Dokumentasi lanskap, air, vegetasi, serta ruang belajar di kawasan konservasi.</p>
-    </div>
+  <main class="page">
+    <h1>Galeri Alam Gunung Cupu</h1>
+    <p class="lead">Dokumentasi lanskap, air, vegetasi, dan proses pemulihan ekologis.</p>
 
-    <!-- GRID GALERI -->
-    <section class="gallery" id="galeri">
-      <!-- Ganti / tambah item sesuai foto kamu -->
-      <figure class="gcard">
-        <img class="gimg" src="assets/img/Air.jpg" alt="Aliran air alami" data-caption="Aliran air alami di kawasan Gunung Cupu (pemulihan hidrologi)." loading="lazy">
-        <figcaption>Aliran air alami</figcaption>
+    <section class="gallery-grid" id="galleryGrid">
+      <!-- GANTI path & caption sesuai file foto di assets/img -->
+      <figure class="gitem" data-full="assets/img/Air.jpg" data-title="Aliran air alami" data-desc="Sumber air dan aliran mikro yang terjaga oleh tutupan vegetasi.">
+        <img class="gimg" src="assets/img/Air.jpg" alt="Aliran air alami">
+        <figcaption class="gcap">Aliran air alami</figcaption>
+        <div class="gsub">Sumber air & mikrohabitat</div>
       </figure>
 
-      <figure class="gcard">
-        <img class="gimg" src="assets/img/Riparian.jpg" alt="Zona riparian" data-caption="Zona riparian: penyangga tepi aliran air untuk stabilitas tanah & habitat." loading="lazy">
-        <figcaption>Zona riparian</figcaption>
+      <figure class="gitem" data-full="assets/img/Riparian.jpg" data-title="Zona riparian" data-desc="Koridor hijau tepi aliran air (riparian) untuk stabilisasi tebing dan habitat satwa.">
+        <img class="gimg" src="assets/img/Riparian.jpg" alt="Zona riparian">
+        <figcaption class="gcap">Zona riparian</figcaption>
+        <div class="gsub">Tepi sungai yang terlindungi</div>
       </figure>
 
-      <figure class="gcard">
-        <img class="gimg" src="assets/img/Vegetasi%20bertingkat.jpg" alt="Vegetasi bertingkat" data-caption="Vegetasi bertingkat: struktur agroforestri yang membangun habitat dan mikroklimat." loading="lazy">
-        <figcaption>Vegetasi bertingkat</figcaption>
+      <figure class="gitem" data-full="assets/img/Vegetasi bertingkat.jpg" data-title="Vegetasi bertingkat" data-desc="Struktur tajuk bertingkat membantu serapan air, perlindungan tanah, dan keanekaragaman hayati.">
+        <img class="gimg" src="assets/img/Vegetasi bertingkat.jpg" alt="Vegetasi bertingkat">
+        <figcaption class="gcap">Vegetasi bertingkat</figcaption>
+        <div class="gsub">Tajuk berlapis & peneduh</div>
       </figure>
 
-      <figure class="gcard">
-        <img class="gimg" src="assets/img/Jambu.jpg" alt="Tanaman buah / pangan" data-caption="Tanaman buah/pangan: bagian dari sistem agroforestri berbasis masyarakat." loading="lazy">
-        <figcaption>Tanaman buah / pangan</figcaption>
+      <figure class="gitem" data-full="assets/img/Jambu.jpg" data-title="Tanaman pangan" data-desc="Agroforestri: kombinasi pohon dan tanaman produktif untuk ketahanan pangan.">
+        <img class="gimg" src="assets/img/Jambu.jpg" alt="Tanaman pangan">
+        <figcaption class="gcap">Tanaman pangan</figcaption>
+        <div class="gsub">Agroforestri produktif</div>
       </figure>
 
-      <figure class="gcard">
-        <img class="gimg" src="assets/img/Rumah%20Sunyi.Jpg" alt="Rumah Sunyi" data-caption="Rumah Sunyi: ruang hening dan tempat singgah untuk belajar di alam." loading="lazy">
-        <figcaption>Rumah Sunyi</figcaption>
+      <figure class="gitem" data-full="assets/img/Rumah Sunyi.Jpg" data-title="Rumah Sunyi" data-desc="Ruang hening untuk belajar, riset, dan residensi kecil yang mendukung edukasi alam.">
+        <img class="gimg" src="assets/img/Rumah Sunyi.Jpg" alt="Rumah Sunyi">
+        <figcaption class="gcap">Rumah Sunyi</figcaption>
+        <div class="gsub">Ruang belajar & residensi</div>
+      </figure>
+
+      <figure class="gitem" data-full="assets/img/hero.jpg" data-title="Lanskap Gunung Cupu" data-desc="Bentang bukit hijau hasil rehabilitasi penanaman jangka panjang.">
+        <img class="gimg" src="assets/img/hero.jpg" alt="Lanskap Gunung Cupu">
+        <figcaption class="gcap">Lanskap Gunung Cupu</figcaption>
+        <div class="gsub">Hutan rakyat & pemulihan</div>
       </figure>
     </section>
   </main>
 
   <!-- LIGHTBOX -->
   <div class="lightbox" id="lightbox" aria-hidden="true">
-    <button class="lb__close" id="lbClose" aria-label="Tutup">×</button>
-
-    <button class="lb__nav lb__prev" id="lbPrev" aria-label="Sebelumnya">‹</button>
-    <button class="lb__nav lb__next" id="lbNext" aria-label="Berikutnya">›</button>
-
-    <div class="lb__body" role="dialog" aria-modal="true" aria-label="Galeri foto">
-      <img id="lbImg" alt="" />
-      <div class="lb__cap" id="lbCap"></div>
+    <div class="lb-card" role="dialog" aria-modal="true">
+      <img class="lb-img" id="lbImg" src="" alt="">
+      <div class="lb-bottom">
+        <div class="lb-text">
+          <div class="lb-title" id="lbTitle"></div>
+          <div class="lb-desc" id="lbDesc"></div>
+        </div>
+        <div class="lb-actions">
+          <button class="lb-btn" id="lbPrev" type="button">◀</button>
+          <button class="lb-btn" id="lbNext" type="button">▶</button>
+          <button class="lb-btn" id="lbClose" type="button">Tutup ✕</button>
+        </div>
+      </div>
     </div>
   </div>
 
   <script>
-    // Lightbox super ringan (khusus halaman ini)
-    const imgs = Array.from(document.querySelectorAll(".gimg"));
-    const lb = document.getElementById("lightbox");
-    const lbImg = document.getElementById("lbImg");
-    const lbCap = document.getElementById("lbCap");
-    const btnClose = document.getElementById("lbClose");
-    const btnPrev = document.getElementById("lbPrev");
-    const btnNext = document.getElementById("lbNext");
+    const items = Array.from(document.querySelectorAll('.gitem'));
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lbImg');
+    const lbTitle = document.getElementById('lbTitle');
+    const lbDesc = document.getElementById('lbDesc');
+    const btnClose = document.getElementById('lbClose');
+    const btnNext = document.getElementById('lbNext');
+    const btnPrev = document.getElementById('lbPrev');
 
     let idx = 0;
 
     function openAt(i){
-      idx = (i + imgs.length) % imgs.length;
-      const el = imgs[idx];
-      lbImg.src = el.src;
-      lbImg.alt = el.alt || "Foto galeri";
-      lbCap.textContent = el.getAttribute("data-caption") || el.alt || "";
-      lb.classList.add("open");
-      lb.setAttribute("aria-hidden", "false");
-      document.documentElement.style.overflow = "hidden";
+      idx = (i + items.length) % items.length;
+      const it = items[idx];
+      const full = it.getAttribute('data-full');
+      const title = it.getAttribute('data-title') || 'Foto';
+      const desc  = it.getAttribute('data-desc')  || '';
+      lbImg.src = full;
+      lbImg.alt = title;
+      lbTitle.textContent = title;
+      lbDesc.textContent = desc;
+      lb.classList.add('open');
+      document.documentElement.style.overflow = 'hidden';
     }
 
     function closeLb(){
-      lb.classList.remove("open");
-      lb.setAttribute("aria-hidden", "true");
-      lbImg.src = "";
-      document.documentElement.style.overflow = "";
+      lb.classList.remove('open');
+      lbImg.src = '';
+      document.documentElement.style.overflow = '';
     }
 
-    imgs.forEach((el, i) => el.addEventListener("click", () => openAt(i)));
-    btnClose.addEventListener("click", closeLb);
-    btnPrev.addEventListener("click", () => openAt(idx - 1));
-    btnNext.addEventListener("click", () => openAt(idx + 1));
+    items.forEach((it, i) => it.addEventListener('click', () => openAt(i)));
+    btnClose.addEventListener('click', closeLb);
+    btnNext.addEventListener('click', () => openAt(idx + 1));
+    btnPrev.addEventListener('click', () => openAt(idx - 1));
 
     // klik area gelap untuk tutup
-    lb.addEventListener("click", (e) => { if (e.target === lb) closeLb(); });
+    lb.addEventListener('click', (e) => { if(e.target === lb) closeLb(); });
 
     // keyboard
-    window.addEventListener("keydown", (e) => {
-      if (!lb.classList.contains("open")) return;
-      if (e.key === "Escape") closeLb();
-      if (e.key === "ArrowLeft") openAt(idx - 1);
-      if (e.key === "ArrowRight") openAt(idx + 1);
+    document.addEventListener('keydown', (e) => {
+      if(!lb.classList.contains('open')) return;
+      if(e.key === 'Escape') closeLb();
+      if(e.key === 'ArrowRight') openAt(idx + 1);
+      if(e.key === 'ArrowLeft') openAt(idx - 1);
     });
   </script>
 </body>
