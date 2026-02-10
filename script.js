@@ -1,62 +1,54 @@
-(function(){
-  // aktifkan highlight menu
+(function () {
+  // Active nav based on file name
   const path = (location.pathname.split("/").pop() || "index.html").toLowerCase();
-  document.querySelectorAll(".menu a").forEach(a=>{
-    const href = (a.getAttribute("href")||"").toLowerCase();
-    if(href === path) a.classList.add("active");
+  document.querySelectorAll(".nav-links a").forEach(a => {
+    const href = (a.getAttribute("href") || "").toLowerCase();
+    if (href === path) a.classList.add("active");
   });
 
-  // Lightbox (hanya berjalan jika ada galeri)
-  const galleryImgs = document.querySelectorAll("[data-gallery='true']");
+  // Lightbox (only if gallery exists on the page)
   const lb = document.getElementById("lightbox");
-  if(!lb || galleryImgs.length === 0) return;
+  if (!lb) return;
 
   const lbImg = document.getElementById("lbImg");
-  const lbCaption = document.getElementById("lbCaption");
-  const lbTitle = document.getElementById("lbTitle");
+  const lbCap = document.getElementById("lbCaption");
   const btnClose = document.getElementById("lbClose");
   const btnNext = document.getElementById("lbNext");
   const btnPrev = document.getElementById("lbPrev");
 
+  const items = Array.from(document.querySelectorAll("[data-full]"));
   let idx = 0;
 
-  function openAt(i){
-    idx = (i + galleryImgs.length) % galleryImgs.length;
-    const el = galleryImgs[idx];
-    const src = el.getAttribute("data-full") || el.getAttribute("src");
+  function openAt(i) {
+    idx = (i + items.length) % items.length;
+    const el = items[idx];
+    const full = el.getAttribute("data-full");
     const cap = el.getAttribute("data-caption") || el.getAttribute("alt") || "Foto galeri";
-    lbImg.src = src;
-    lbImg.alt = cap;
-    lbCaption.textContent = cap;
-    lbTitle.textContent = `Foto ${idx+1} / ${galleryImgs.length}`;
+    lbImg.src = full;
+    lbCap.textContent = cap;
     lb.classList.add("open");
     document.documentElement.style.overflow = "hidden";
   }
-
-  function close(){
+  function close() {
     lb.classList.remove("open");
     lbImg.src = "";
     document.documentElement.style.overflow = "";
   }
 
-  galleryImgs.forEach((el,i)=>{
-    el.style.cursor = "zoom-in";
-    el.addEventListener("click", ()=>openAt(i));
-    el.addEventListener("keydown", (e)=>{
-      if(e.key === "Enter") openAt(i);
-    });
-    el.setAttribute("tabindex","0");
+  items.forEach((el, i) => el.addEventListener("click", () => openAt(i)));
+
+  btnClose && btnClose.addEventListener("click", close);
+  btnNext && btnNext.addEventListener("click", () => openAt(idx + 1));
+  btnPrev && btnPrev.addEventListener("click", () => openAt(idx - 1));
+
+  lb.addEventListener("click", (e) => {
+    if (e.target === lb) close();
   });
 
-  btnClose.addEventListener("click", close);
-  btnNext.addEventListener("click", ()=>openAt(idx+1));
-  btnPrev.addEventListener("click", ()=>openAt(idx-1));
-  lb.addEventListener("click", (e)=>{ if(e.target === lb) close(); });
-
-  document.addEventListener("keydown", (e)=>{
-    if(!lb.classList.contains("open")) return;
-    if(e.key === "Escape") close();
-    if(e.key === "ArrowRight") openAt(idx+1);
-    if(e.key === "ArrowLeft") openAt(idx-1);
+  document.addEventListener("keydown", (e) => {
+    if (!lb.classList.contains("open")) return;
+    if (e.key === "Escape") close();
+    if (e.key === "ArrowRight") openAt(idx + 1);
+    if (e.key === "ArrowLeft") openAt(idx - 1);
   });
 })();
