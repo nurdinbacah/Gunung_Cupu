@@ -10,3 +10,82 @@
 /script.js
 /assets/img/   (isi foto-foto)
 
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Nafas Gunung Cupu</title>
+  <meta name="description" content="Gunung Cupu — konservasi, agroforestri, dan edukasi alam berbasis masyarakat." />
+  <link rel="icon" href="assets/img/logo-icon.png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="topbar">
+    <div class="container">
+      <div class="nav">
+        <a class="brand" href="index.html">
+          <img src="assets/img/logo-icon.png" alt="Logo" />
+          <div>
+            <div class="t1">Nafas Gunung Cupu</div>
+            <div class="t2">Conservation Farm & Natural Adventure</div>
+          </div>
+        </a>
+
+        <div class="menu">
+          <a href="index.html">Beranda</a>
+          <a href="tentang.html">Tentang</a>
+          <a href="galeri.html">Galeri</a>
+          <a href="kontak.html">Kontak</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="hero">
+      <div class="hero-inner">
+        <div class="hero-media" aria-label="Foto hero"></div>
+        <div class="hero-copy">
+          <span class="badge">🌿 Nafas Gunung Cupu</span>
+          <h1>Menanam sepanjang musim, merawat sepanjang waktu, menjaga sepanjang masa.</h1>
+          <p class="lead">
+            Gunung Cupu adalah lanskap pemulihan ekologis berbasis penanaman jangka panjang
+            yang menguatkan hutan rakyat, air, dan pembelajaran.
+          </p>
+
+          <div class="btnrow">
+            <a class="btn primary" href="tentang.html">📄 Baca Tentang</a>
+            <a class="btn soil" href="galeri.html">🖼️ Lihat Galeri</a>
+            <a class="btn" href="kontak.html">✉️ Hubungi</a>
+          </div>
+
+          <div class="kpis">
+            <div class="kpi"><div class="k">20+ tahun</div><div class="d">rehabilitasi bertahap</div></div>
+            <div class="kpi"><div class="k">Agro–Eco–Edu</div><div class="d">wisata kecil & terkendali</div></div>
+            <div class="kpi"><div class="k">Berbasis warga</div><div class="d">manfaat ekonomi sejalan konservasi</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Ringkas</h2>
+      <p>
+        Situs ini adalah halaman informasi resmi untuk dokumentasi kawasan, program edukasi,
+        dan komunikasi kemitraan. Konten dibuat sederhana agar cepat dibuka di HP dan siap ditempel di QR papan lokasi.
+      </p>
+    </div>
+
+    <div class="footer">
+      <div>© <span id="year"></span> Nafas Gunung Cupu</div>
+      <div><a href="galeri.html">Galeri</a> · <a href="tentang.html">Tentang</a> · <a href="kontak.html">Kontak</a></div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
